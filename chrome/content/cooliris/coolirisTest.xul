@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE window SYSTEM "chrome://cooliris/locale/cooliris.dtd">
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://browser/skin/browser.css" type="text/css"?>
+<?xml-stylesheet href="chrome://cooliris/skin/cooliris.css" type="text/css"?>
+<window id="coolirisTest"
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+  xmlns:html="http://www.w3.org/1999/xhtml">
+
+	<script type="application/x-javascript" src="chrome://cooliris/content/coolirisSiteManager.js" />
+	<script type="application/x-javascript" src="chrome://cooliris/content/utils.js" />
+	<script type="application/x-javascript" src="chrome://cooliris/content/xmlhttpNew.js" />
+	<script type="application/x-javascript" src="chrome://cooliris/content/coolirisOverlay.js" />
+	<script type="application/x-javascript" src="chrome://cooliris/content/coolirisPagePreviews.js" />
+	<script type="application/x-javascript" src="chrome://cooliris/content/coolirisImagePreviews.js" />
+	<script type="application/x-javascript" src="chrome://cooliris/content/coolirisNodeType.js" />
+	<script type="application/x-javascript" src="chrome://cooliris/content/coolirisFramePanel.js" />
+	<script type="application/x-javascript" src="chrome://cooliris/content/webcontrol.js" />
+	<script type="application/x-javascript" src="chrome://cooliris/content/coolirisStackHandler.js" />
+	
+<deck class="cooliris-main-overlay" id="cooliris-preview-overlay" onmouseover="cpvw_previewHandler.mouseOver(event);" onmouseout="cpvw_previewHandler.mouseOut(event);">
+	<iframe id="cooliris-preview-frame" disablehistory="false" type="content" context="contentAreaContextMenu" src="http://www.google.com" onload="cpvw_previewHandler.pageLoad(event);"/>
+	<deck id="cooliris-toolbar" class="cooliris-toolbar">
+
+		<hbox id="cooliris-preview-toolbar"  class="cooliris-preview-toolbar" onmousedown="cpvw_previewHandler.startFrameDrag(event);" >
+
+			<spacer width="5px"/>
+			<image id="cooliris_btnBack" height="21px" style="height:21px;" class="cooliris_btnBack" tooltiptext="Go back" onmousedown="this.setAttribute('clicked', true)" onmouseup="this.removeAttribute('clicked')" onclick="cpvw_previewHandler.goBack(event);"/>
+			<image  id="cooliris_next" class="cooliris_next" onmousedown="this.setAttribute('clicked', true)" onmouseup="this.removeAttribute('clicked')" tooltiptext="Next link" onclick="cpvw_previewHandler.gotoNextLink();"/>
+
+			<spacer width="5px"/>
+			<image id="cooliris_stack"  class="cooliris_stack" tooltiptext="Temporarily bookmark with Cooliris stack" onclick="this.removeAttribute('clicked');cpvw_previewHandler.addToStack();" onmousedown="this.setAttribute('clicked', true)" onmouseup="this.removeAttribute('clicked')" />
+			<image  id="cooliris_openTab" class="cooliris_openTab" tooltiptext="Open the current link in new tab"  onclick="cpvw_previewHandler.openLink(event);" onmousedown="this.setAttribute('clicked', true)" onmouseup="this.removeAttribute('clicked')" />
+			<image id="cooliris_openPiclensLite" class="cooliris_piclenslite" tooltiptext="Open Piclens Lite"  onclick="cpvw_previewHandler.openPiclensLite();" onmousedown="this.setAttribute('clicked', true)" onmouseup="this.removeAttribute('clicked')" />
+
+			<spacer width="5px"/>
+			<image id="cooliris_zoom" class="cooliris_zoom" popup="cooliris_zoom_popup" tooltiptext="Text size" onmousedown="this.setAttribute('clicked', true)" onmouseup="this.removeAttribute('clicked')" />
+
+			<spacer width="5px"/>
+			<image id="cooliris_sendToButton" class="cooliris_sendToButton" tooltiptext="Email the current link"  onclick="CoolirisFramePanel.showSendTo(event, true);" onmousedown="this.setAttribute('clicked', true)" onmouseup="this.removeAttribute('clicked')" />
+
+			<spacer flex="1"/>
+			<image  class="cooliris_logo" style="cursor:pointer;"   onclick="cpvw_previewHandler.openCoolirisWebsite();"/>
+			<spacer width="5px"/>
+			<image id="cooliris_useroptions"  class="cooliris_useroptions" tooltiptext="User Options and Settings" onclick="cpvw_Prefs.showPrefDialog(event);" onmousedown="this.setAttribute('clicked', true)" onmouseup="this.removeAttribute('clicked')" />
+			<spacer width="5px"/>
+			<image id="cooliris_pushPin" class="cooliris_pushPin" tooltiptext="Stick the frame" onclick="cpvw_previewHandler.togglePushPin();"/>
+			<image  id="cooliris_close" class="cooliris_close" tooltiptext="Close the preview" onclick="cpvw_previewHandler.hidePreview(true);"/>
+		</hbox>
+	</deck>	
+	<iframe id="cooliris-preview-frame" disablehistory="false" type="content" context="contentAreaContextMenu" src="http://www.google.com" onload="cpvw_previewHandler.pageLoad(event);"/>
+	<hbox flex="1" class="cooliris-statusbar" id="cooliris_statusbar" onmousedown="cpvw_previewHandler.startFrameDrag(event);">
+		<image id="cooliris-preview-resize-left" class="cooliris_resize_left"   onmousedown="cpvw_previewHandler.startResizeLeft(event);event.preventDefault();event.stopPropagation();"/>
+		<spacer flex="1"/>
+		<image id="cooliris-preview-resize"  class="cooliris_resize_right"   onmousedown="cpvw_previewHandler.startResize(event);event.preventDefault();event.stopPropagation();"/>
+	</hbox>
+</deck>
+</window>

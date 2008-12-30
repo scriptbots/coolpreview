@@ -1,0 +1,292 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://browser/skin/browser.css" type="text/css"?>
+<?xml-stylesheet href="chrome://cooliris/skin/cooliris.css" type="text/css"?>
+
+<dialog id="cooliris_options" 
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        buttons="accept,cancel"
+        ondialogaccept="return cpvw_Prefs.doOK();"
+        ondialogcancel="return cpvw_Prefs.doCancel();"
+        title="User Options"
+	onload="cpvw_Prefs.getOptionsPreviewPrefs();sizeToContent();"
+	buttonlabelaccept="Save"
+	minheight="480">
+
+	<script type="application/x-javascript" src="chrome://cooliris/content/utils.js" />
+	<script type="application/x-javascript">
+
+		function defaultEnableMesg()
+		{
+		var mesg;
+		if (document.getElementById('cooliris_defaultEnable').checked)
+		{
+
+		mesg = "Enable previews is now Off. This means that Cooliris Previews will now work only on the sites \n selected by Cooliris along with the ones that you have enabled explicitly";
+		}
+		else
+		{
+
+		mesg = "Enable previews is now On. This means that Cooliris Previews will now work for all sites \n on the world wide web except for the ones you have disabled explicitly.";
+		}
+
+		alert(mesg);
+		}
+
+		function disableEnableMesg()
+		{
+		var mesg;
+		if (document.getElementById('cooliris_globalDisable').checked)
+		{
+
+		document.getElementById('cooliris_defaultEnable').disabled = false;
+		}
+		else
+		{
+		document.getElementById('cooliris_defaultEnable').disabled = true;
+		
+		}
+		}
+
+	</script>
+	<tabbox  flex="1">
+		<tabs>
+			<tab label="Settings"/>
+			<tab label="Right-click search"/>
+		</tabs>
+		<tabpanels flex="1" style="padding:0px 0px 3px 0px; " >
+			<tabpanel flex="1" orient="vertical">
+				<vbox flex="10">
+					<spacer height="10px"/>
+					<hbox>
+						<checkbox id="cooliris_defaultEnable" label="Enable previews for all websites" onclick="defaultEnableMesg()"/>
+					</hbox>
+					<hbox>
+						<checkbox id="cooliris_globalDisable" label="Disable previews completely" onclick="disableEnableMesg()"/>
+					</hbox>
+					<hbox>
+						<checkbox id="cooliris_prefetchWebsites" label="Prefetch websites"/>
+					</hbox>
+					<hbox>
+						<checkbox id="cooliris_applyBrowserZoom" label="Use browser's font size setting in preview window"/>
+					</hbox>
+					<spacer height="10px"/>
+					<hbox style="-moz-box-align:center;">
+						<label control="cooliris_previewTheme" value="Select theme:"/>
+						<menulist id="cooliris_previewTheme" >
+							<menupopup>
+								<menuitem value="grape" label="Grape" style="background-image:url(chrome://cooliris/skin/new/fill-grape-blue.png)" class="menuitem-iconic" />
+								<menuitem value="ice" style="background-image:url(chrome://cooliris/skin/new/fill-ice.png);color:blue;" class="menuitem-iconic" label="Ice"/>
+								<menuitem value="forest" label="Forest" style="background-image:url(chrome://cooliris/skin/new/fill-forest.png)" class="menuitem-iconic" />
+								<menuitem value="black" label="Black" style="background-image:url(chrome://cooliris/skin/new/fill-black.png)" class="menuitem-iconic" />
+								<menuitem value="orange" label="Orange" style="background-image:url(chrome://cooliris/skin/new/fill-orange.png)" class="menuitem-iconic" />
+								<menuitem value="mint" label="Mint" style="background-image:url(chrome://cooliris/skin/new/fill-mint.png);color:black;" class="menuitem-iconic" />
+								<menuitem value="rust" label="Rust" style="background-image:url(chrome://cooliris/skin/new/fill-rust.png)" class="menuitem-iconic" />
+								<menuitem value="default" label="Cool Blue" style="background-image:url(chrome://cooliris/skin/new/fill-blue.png)" class="menuitem-iconic" />
+								<menuitem value="xp" label="XP" style="background-image:url(chrome://cooliris/skin/new/fill-xp.png)" class="menuitem-iconic" />
+							</menupopup>
+						</menulist>
+					</hbox>
+
+					<spacer height="5px"/>
+					<hbox style="-moz-box-align:center;">
+						<label control="cooliris_previewOpenMode" value="Preview Open Mode:"/>
+						<menulist id="cooliris_previewOpenMode">
+							<menupopup>
+								<menuitem value="direct" label="Open Preview on Mouseover"/>
+								<menuitem value="icon" label="Open Preview on Mouseover Icon"/>
+								<menuitem value="icon-click" label="Open Preview on Clicking Icon"/>
+								<menuitem value="click" label="Open Preview on Clicking Link"/>
+								<menuitem value="hotkey" label="Open Preview on Ctrl + Mouseover"/>
+							</menupopup>
+						</menulist>
+					</hbox>
+					<hbox>
+						<spacer width="30px"/>
+						<vbox>
+							<hbox>
+								<checkbox id="cooliris_fixedLoc" label="Auto position window"/>
+							</hbox>
+							<hbox>
+								<checkbox id="cooliris_fixedIcon" label="Show mouseover icon at the end of the link"/>
+							</hbox>
+							<spacer height="5px"/>
+							<hbox style="-moz-box-align:center;">
+								<vbox>
+									<label control="cooliris_openDelay" value="Delay opening preview window"/>
+									<hbox>
+										<spacer width="30px"/>
+										<textbox id="cooliris_openDelay" rows="1" cols="10" size="10" maxlength="10"/>
+										<label value="(milliseconds)"/>
+									</hbox>
+								</vbox>
+							</hbox>
+							
+							<hbox style="-moz-box-align:center;">
+								<vbox>
+									<label control="cooliris_smallDivDelay" value="Delay appearance of Mouseover icon"/>
+									<hbox>
+										<spacer width="30px"/>
+										<textbox id="cooliris_smallDivDelay" rows="1" cols="10" size="10" maxlength="10"/>
+										<label value="(milliseconds)"/>
+									</hbox>
+								</vbox>
+							</hbox>
+							
+							<!--<hbox style="-moz-box-align:center;">
+								<vbox>
+									<label control="cooliris_previewOnIconDelay" value="Delay Preview on mouseover icon"/>
+									<hbox>
+										<spacer width="30px"/>
+										<textbox id="cooliris_previewOnIconDelay" rows="1" cols="10" size="10" maxlength="10"/>
+										<label value="(milliseconds)"/>
+									</hbox>
+								</vbox>
+							</hbox>
+							-->
+							<hbox style="-moz-box-align:center;">
+								<vbox>
+									<label control="cooliris_hidePreviewDelay" value="Delay closing preview window"/>
+									<hbox>
+										<spacer width="30px"/>
+										<textbox id="cooliris_hidePreviewDelay" rows="1" cols="10" size="10" maxlength="10"/>
+										<label value="(milliseconds)"/>
+									</hbox>
+								</vbox>
+							</hbox>
+						</vbox>
+					</hbox>
+					
+					
+					<spacer height="10px"/>
+					<!--<vbox>
+						<checkbox label="In slideshow mode, filter out images smaller than" oncommand="cpvw_Prefs.managePiclensFilter();"  id="cooliris_piclensFilter"/>
+						<hbox id="cooliris_piclens_filter_box">
+							<spacer width="30px"/>
+							<vbox>
+								<hbox>
+									<label value="Width " style="padding:5px 0px 0px 0px"/>
+									<textbox id="cooliris_piclens_width" rows="1" cols="10" size="3" maxlength="3"/>
+									<label value="pixels" style="padding:5px 0px 0px 0px"/>
+								</hbox>
+								<hbox>
+									<label value="Height" style="padding:5px 0px 0px 0px"/>
+									<textbox id="cooliris_piclens_height" rows="1" cols="10" size="3" maxlength="3"/>
+									<label value="pixels" style="padding:5px 0px 0px 0px"/>
+								</hbox>
+							</vbox>
+						</hbox>							
+					</vbox>-->
+				</vbox>
+			</tabpanel>
+			<tabpanel flex="1" orient="vertical">
+				<vbox flex="2">
+					<spacer height="5px"/>
+					<hbox flex="1" style="-moz-box-pack:center;">
+						<vbox style="width:190px">
+							<hbox>
+								<label  value="Non-Activated Websites"/>
+							</hbox>
+							<tree id="cooliris_contextSiteTree" flex="5"  onselect="cpvw_contextSitesTreeView.selection.invalidateSelection();cpvw_contextSitesTreeView.editWebsite();">
+								<treecols>								
+									<treecol id="cooliris_contextSiteTree_name" label="Website Name" flex="1" persist="width ordinal hidden sortDirection"/>
+								</treecols>
+								<treechildren/>
+							</tree>							
+						</vbox>						
+						<vbox pack="center">
+							<button id="cooliris_selectWebsite" class="cooliris-options-select" style="min-width:0px"
+								oncommand="cpvw_contextSitesTreeView.selectWebsites('show')"/>
+							<spacer height="3px"/>
+							<button id="cooliris_deselectWebsite" class="cooliris-options-deselect"  style="min-width:0px"
+								oncommand="cpvw_contextSitesTreeView.deselectWebsites('hide')"/>
+						</vbox>
+						<vbox style="width:190px">
+							
+							<hbox>
+								<label  value="Activated Websites"/>								
+							</hbox>
+								<tree id="cooliris_contextSiteTreeSelected" flex="4" onselect="cpvw_contextSitesTreeView.selection.invalidateSelection();cpvw_contextSitesTreeView.editWebsite();">
+									<treecols>
+										<treecol id="cooliris_contextSiteTree_name" label="Website Name" flex="1" persist="width ordinal hidden sortDirection"/>
+									</treecols>
+									<treechildren/>
+								</tree>
+
+						</vbox>
+					</hbox>
+				
+					<groupbox>
+						<caption label="Instructions for adding your own websites"/>
+						<description>
+							1. In your Firefox browser, do a search on the website you want to add
+						</description>
+						<description>
+							2. Copy the resulting URL from that search, and paste it into box #2 below
+						</description>
+						<description>
+							3. In box #3, enter the exact word you searched
+						</description>
+						
+					</groupbox>
+					
+
+					<grid>
+						<columns>
+							<column/>
+							<column flex="1"/>
+						</columns>
+						<rows>
+							<row>
+								<label style="-moz-box-pack:center;" control="siteName" tooltiptext="Site Name" value="1. Site Name:"/>
+								<hbox style="-moz-box-align:center;">
+									<textbox id="siteName"/>
+									<label control="siteName" value="(Name displayed in the list above)"/>
+								</hbox>
+							</row>
+							<row>
+								<vbox>
+									<label control="siteUrl" value="2. URL:" tooltiptext="Url of the website" />
+								</vbox>
+								<vbox>
+									<command id="cooliris_siteUrl" oncommand="cpvw_contextSitesTreeView.updateImageUrl();"/>
+									<textbox command="cooliris_siteUrl" id="siteUrl" value="http://" type="timed" timeout="1500"/>
+
+								</vbox>
+							</row>
+							<row>
+								<vbox>
+									<label control="searchPhrase" value="3. Search word:" tooltiptext="Type in the word you searched for the above url" />
+								</vbox>
+								<vbox>
+									<textbox id="searchPhrase" value=""/>
+								</vbox>
+							</row>
+							<row>
+								<vbox>
+									<label control="siteIcon" value="4. Website Icon:" />
+									<label control="siteUrl" value=""/>
+								</vbox>
+								<vbox>
+									<textbox id="siteIcon" value="" oninput="cpvw_contextSitesTreeView.isIconEdited = true;"/>
+								</vbox>
+							</row>
+								<hbox style="-moz-box-align:center">
+									<label value="Click here to learn more" style="color:blue;cursor:pointer;" onclick="cpvw_contextSitesTreeView.openHelp();"/>
+									<spacer flex="1"/>
+									<button id="btnAddWebsite" label="Add" oncommand="cpvw_contextSitesTreeView.addWebsite()"/>
+									<button id="btnRemoveWebsite" label="Remove" oncommand="cpvw_contextSitesTreeView.removeWebsite()"/>
+									<button id="btnClear" label="Clear" oncommand="cpvw_contextSitesTreeView.clearDetails()"/>
+								</hbox>
+							
+						</rows>
+					</grid>
+
+          <spacer height="5px"/>
+					<!--<listbox id="cooliris_contextList" rows="6"  seltype="multiple" hidden="true"/>-->
+				</vbox>			
+			</tabpanel>
+		</tabpanels>
+	</tabbox>
+</dialog>
+

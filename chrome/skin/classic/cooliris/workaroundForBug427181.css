@@ -1,0 +1,10 @@
+/* 
+ * Workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=427181
+ * Copyright 2008 Cooliris
+ * Author: Collin Jackson
+ */
+
+browser.workaroundForBug427181
+{
+	background-color: transparent;
+}

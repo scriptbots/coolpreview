@@ -1,0 +1,345 @@
+#tabbrowser {
+  -moz-binding: url("chrome://global/content/bindings/tabbrowser.xml#tabbrowser");
+}
+
+.cooliris-main-overlay
+{
+	z-index:10000;
+	background-color:gray;
+	position:fixed;
+	-moz-border-radius: 3px 3px 3px 3px;
+	overflow:auto;
+}
+
+#cooliris-browser-stack
+{
+	opacity:1.0;
+	background-color:white;
+	border-left: solid 1px darkgray;
+	border-right: solid 1px darkgray;	
+	
+}
+
+
+.cooliris-browser
+{
+	margin-top: -2px;
+	z-index:10000;
+	position:relative;
+	opacity:1.0;
+	background-color:White;
+}
+
+.cooliris-bar
+{
+	z-index:10000;
+	position:relative;
+	opacity:1.0;
+	background-color:White;
+	border-bottom:1px solid gray;
+}
+
+.cooliris-positionfixed
+{
+	position:fixed;
+}
+
+.cooliris-innerframe
+{
+	z-index:10002;
+	position:fixed;
+	border:1px solid black;
+	background-color: #D7D7D7;
+}
+
+.cooliris-toolbar 
+{
+	width:100%;
+	height:25px;
+	z-index:1000;	
+}
+
+.cooliris-statusbar
+{
+	width:100%;
+	top:0px;
+	text-align:right;
+	background: url(chrome://cooliris/skin/new/10.lower_fill.gif) repeat-x;
+}
+
+.cooliris-stacktoolbar
+{
+	width:100%;
+	height:25px;
+	z-index:1000;
+	background: url(6.mid_fill.gif) repeat-x;
+	border-bottom: 1px solid #aaa;
+	padding : 5px 5px 5px 5px;
+}
+
+.cooliris-stackicon
+{
+	position:fixed;	
+	height:57px;
+	width:19px;	
+	background: url(main_fill.png) repeat-y;
+	z-index:10000;
+}
+
+.cooliris-stackHolder
+{
+	position:fixed;
+	top:220px;
+	right:0px;
+	height:250px;
+	width:116px;	
+	background: url(main_fill.png) repeat-y;
+	border: 1px solid #777;
+	border-right: none;
+}
+
+.cooliris-resize
+{
+	position:relative;
+	width:100%;
+	text-align:right;
+	background: url(10.lower_fill.gif) repeat-x;
+}
+
+.cooliris-preview-toolbar toolbarbutton .toolbarbutton-icon {
+  
+  -moz-box-pack:center;
+  -moz-box-sizing: padding-box;
+}
+
+
+.cooliris_btnBack
+{
+	list-style-image: url(chrome://cooliris/skin/toolbar/back-btn.png);
+	-moz-box-sizing: padding-box;
+	cursor:pointer;
+}
+
+.cooliris_btnBack[clicked=true]
+{
+	list-style-image: url(chrome://cooliris/skin/toolbar/back-btn-click.png);
+	cursor:pointer;
+}
+
+/*
+.cooliris_btnBack:hover
+{
+	list-style-image: url(chrome://cooliris/skin/back_hover.gif);
+	cursor:pointer;
+}
+*/
+
+
+.cooliris_pushPin
+{
+	list-style-image: url(chrome://cooliris/skin/toolbar/unlock-btn.png);
+	cursor:pointer;
+}
+
+/*
+.cooliris_pushPin[clicked=true]
+{
+	list-style-image: url(chrome://cooliris/skin/unlock.gif);
+	cursor:pointer;
+}
+
+
+.cooliris_pushPin:hover
+{
+	list-style-image: url(chrome://cooliris/skin/unlock_hover.gif);
+	cursor:pointer;
+}
+*/
+.cooliris_pushPin[locked=yes]
+{
+	list-style-image: url(chrome://cooliris/skin/toolbar/lock-btn.png);
+	cursor:pointer;
+}
+/*
+.cooliris_pushPin[locked=yes]:hover
+{
+	list-style-image: url(chrome://cooliris/skin/lock_hover.gif);
+	cursor:pointer;
+}
+*/
+
+.cooliris_sendToButton
+{
+	list-style-image: url(chrome://cooliris/skin/toolbar/email-btn.png);
+	cursor:pointer;
+}
+
+.cooliris_sendToButton[clicked=true]
+{
+	list-style-image: url(chrome://cooliris/skin/toolbar/email-btn-click.png);
+	cursor:pointer;
+}
+
+.cooliris_openTab
+{
+	list-style-image: url(chrome://cooliris/skin/toolbar/tab-btn.png);
+	cursor:pointer;
+}
+
+.cooliris_openTab[clicked=true]
+{
+	list-style-image: url(chrome://cooliris/skin/toolbar/tab-btn-click.png);
+	cursor:pointer;
+}
+
+.cooliris_stack
+{
+	list-style-image: url(chrome://cooliris/skin/toolbar/stack-btn.png);
+	cursor:pointer;
+}
+
+.cooliris_stack[clicked=true]
+{
+	list-style-image: url(chrome://cooliris/skin/toolbar/stack-btn-click.png);
+	cursor:pointer;
+}
+
+.cooliris_zoom
+{
+	list-style-image: url(chrome://cooliris/skin/toolbar/text-btn.png);
+	cursor:pointer;
+}
+
+.cooliris_zoom[clicked=true]
+{
+	list-style-image: url(chrome://cooliris/skin/toolbar/text-btn-click.png);
+	cursor:pointer;
+}
+
+.cooliris_next
+{
+	list-style-image: url(chrome://cooliris/skin/toolbar/forward-btn.png);
+	cursor:pointer;
+}
+
+.cooliris_next[clicked=true]
+{
+	list-style-image: url(chrome://cooliris/skin/toolbar/forward-btn-click.png);
+	cursor:pointer;
+}
+
+.cooliris_close
+{
+	list-style-image: url(chrome://cooliris/skin/toolbar/close-btn.png);
+	cursor:pointer;
+}
+
+
+.cooliris_useroptions
+{
+	list-style-image: url(chrome://cooliris/skin/toolbar/preferences-btn.png);
+	cursor:pointer;
+}
+
+.cooliris_useroptions[clicked=true]
+{
+	list-style-image: url(chrome://cooliris/skin/toolbar/preferences-btn-click.png);
+	cursor:pointer;
+}
+
+.cooliris_separator
+{
+	list-style-image:url(chrome://cooliris/skin/new/separator.gif);
+}
+
+.cooliris_resize_left
+{
+	cursor : sw-resize;left:0px;height:15px;border:0px solid red;
+	list-style-image:url(chrome://cooliris/skin/new/resizeicon_left.gif);
+}
+
+.cooliris_resize_right
+{
+	cursor : se-resize;right:0px;background-color:#EBE9ED;height:15px;border:0px solid red;
+	list-style-image:url(chrome://cooliris/skin/new/resizeicon_right.gif);
+}
+
+.cooliris_logo
+{
+	list-style-image: url(chrome://cooliris/skin/toolbar/cool-previews-logo.png);
+	cursor:pointer;
+}
+
+.cooliris_logo:hover
+{
+	list-style-image: url(chrome://cooliris/skin/toolbar/cool-previews-logo.png);
+	cursor:pointer;
+}
+
+.cooliris_piclenslite
+{
+	list-style-image: url(chrome://cooliris/skin/toolbar/slideshow-btn.png);
+	cursor:pointer;
+}
+
+.cooliris_piclenslite[clicked=true]
+{
+	list-style-image: url(chrome://cooliris/skin/toolbar/slideshow-btn-click.png);
+	cursor:pointer;
+}
+
+
+.cooliris_contextSiteTree treechildren::-moz-tree-checkbox
+{
+  /* unchecked checkbox treecells */
+  list-style-image: none;
+}
+.cooliris_contextSiteTree treechildren::-moz-tree-checkbox(checked)
+{
+  /* checked checkbox treecells*/
+  list-style-image: url("chrome://cooliris/skin/new/cbox-check.gif");
+}
+.cooliris_contextSiteTree treechildren::-moz-tree-checkbox(disabled)
+{
+  /* disabled checkbox treecells */
+  list-style-image: url("chrome://global/skin/checkbox/cbox-check-dis.gif");
+}
+
+.cooliris-options-select 
+{
+	list-style-image: url(chrome://cooliris/skin/new/r_arrow.png);
+	cursor:pointer;
+}
+
+.cooliris-options-select:hover
+{
+	list-style-image: url(chrome://cooliris/skin/new/r_arrow_hover.png);
+	cursor:pointer;
+}
+
+
+.cooliris-options-deselect 
+{
+	list-style-image: url(chrome://cooliris/skin/new/l_arrow.png);
+	cursor:pointer;
+}
+
+.cooliris-options-deselect:hover
+{
+	list-style-image: url(chrome://cooliris/skin/new/l_arrow_hover.png);
+	cursor:pointer;
+}
+
+.cooliris-stack-element
+{
+	cursor:pointer;
+	position:relative;
+	display:block;
+	border:1px solid #a1a1a1;
+	margin:5px 5px 5px 5px;
+}
+
+.cooliris-stack-element:hover
+{	
+	border:1px solid #067ccf;
+}

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE window SYSTEM "chrome://cooliris/locale/cooliris.dtd">
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://browser/skin/browser.css" type="text/css"?>
+<?xml-stylesheet href="chrome://cooliris/skin/workaroundForBug427181.css" type="text/css"?>
+
+<!--
+	 Workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=427181
+	 Copyright 2008 Cooliris
+	 Author: Collin Jackson
+-->
+
+<overlay id="coolirisOverlay" 
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	xmlns:html="http://www.w3.org/1999/xhtml" >
+
+	<window id="main-window">	
+		
+		<vbox id="cooliris_stackIcon" >
+			<stack>
+				<browser position="1" class="workaroundForBug427181"/>
+				<vbox id="cooliris_stackTabShow" hidden="true">				
+					<image src="chrome://cooliris/skin/new/tab_x.png" onclick="cpvw_stackManager.closeStack();"/>
+					<image src="chrome://cooliris/skin/new/tab_lock.png" id="cooliris_stackLocked" onclick="cpvw_stackManager.lockStack();"/>
+					<!--<image src="chrome://cooliris/skin/tab_msg.png" />-->
+					<image src="chrome://cooliris/skin/new/tab_sep.png" />
+					<vbox>				
+						<image src="chrome://cooliris/skin/stack/cool-previews-logo-tilted.jpg" />
+					</vbox>
+				</vbox>
+			
+				<vbox id="cooliris_stackTabIcon" hidden="true">				
+					<image src="chrome://cooliris/skin/stack/cool-previews-logo-base.jpg" />
+				</vbox>
+			</stack>
+		</vbox>
+		<vbox id="cooliris_animFrame" >
+			<stack id="cooliris_animFrame_stack" >
+				<browser position="1" class="workaroundForBug427181"/>
+			</stack>
+		</vbox>
+		<vbox id="cooliris_canvasHolder" >
+			<stack id="cooliris_canvasHolder_stack" >
+				<browser position="1" class="workaroundForBug427181"/>
+				<arrowscrollbox orient="vertical" id="cooliris_cHolder" style="max-height:200px;border:1px solid #777;">
+					<stack>
+						<browser position="1" class="workaroundForBug427181"/>
+						<html:canvas id="cooliris_canvas" style="display:none" />
+					</stack>
+				</arrowscrollbox>
+				<hbox style="position:fixed;" hidden="true" id="cooliris-stackresize">
+					<stack>
+						<browser position="1" class="workaroundForBug427181"/>
+						<image id="cooliris-preview-stack-resize"  onmousedown="cpvw_stackManager.startResize(event);"  style="cursor : s-resize;right:0px;background-color:#EBE9ED;height:11px;border:0px solid red;" src="chrome://cooliris/skin/stack/resize-bar.png"/>
+					</stack>
+				</hbox>
+			</stack>
+		</vbox>
+	</window>
+</overlay>

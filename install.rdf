@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#"
+         xmlns:NC="http://home.netscape.com/NC-rdf#"
+         xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <RDF:Description RDF:about="rdf:#$VB9S51"
+                   em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   em:minVersion="1.0"
+                   em:maxVersion="3.1b3pre" />
+  <Description RDF:about="rdf:#$wfnx83"
+                   em:id="{a463f10c-3994-11da-9945-000d60ca027b}"
+                   em:minVersion="0.4"
+                   em:maxVersion="1.0" />
+  <RDF:Description RDF:about="urn:mozilla:extension:file:cooliris.jar"
+                   em:package="content/cooliris/"
+                   em:skin="skin/classic/cooliris/"
+                   em:locale="locale/cooliris/en-US/" />
+  <RDF:Description RDF:about="rdf:#$.B9S51"
+                   em:id="{86c18b42-e466-45a9-ae7a-9b95ba6f5640}"
+                   em:minVersion="1.7"
+                   em:maxVersion="1.8" />
+  <RDF:Description RDF:about="urn:mozilla:install-manifest"
+                   em:id="{CE6E6E3B-84DD-4cac-9F63-8D2AE4F30A4B}"
+                   em:name="CoolPreviews"
+                   em:version="2.7"
+                   em:description="Browse Faster. Preview and share links and media without leaving your current page."
+                   em:creator="Cooliris Inc, www.cooliris.com"
+                   em:optionsURL="chrome://cooliris/content/options.xul"
+                   em:iconURL="chrome://cooliris/skin/new/previews-installer-icon.png">
+    <em:file RDF:resource="urn:mozilla:extension:file:cooliris.jar"/>
+    <em:targetApplication RDF:resource="rdf:#$VB9S51"/>
+    <em:targetApplication RDF:resource="rdf:#$.B9S51"/>
+    <em:targetApplication RDF:resource="rdf:#$wfnx83"/>
+  </RDF:Description>
+</RDF:RDF>

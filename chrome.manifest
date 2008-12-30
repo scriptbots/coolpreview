@@ -1,0 +1,9 @@
+content	cooliris	jar:chrome/cooliris.jar!/content/cooliris/
+content	cooliris	jar:chrome/cooliris.jar!/content/cooliris/ contentaccessible=yes
+overlay	chrome://browser/content/browser.xul	chrome://cooliris/content/coolirisOverlay.xul
+overlay chrome://browser/content/browser.xul	chrome://cooliris/content/workaroundForBug427181.xul	appversion>=3.0
+overlay chrome://browser/content/browser.xul	chrome://cooliris/content/coolirisOverlay_FF2.xul	appversion<3.0
+locale	cooliris	en-US	jar:chrome/cooliris.jar!/locale/cooliris/en-US/
+
+skin	cooliris	classic/1.0	jar:chrome/cooliris.jar!/skin/classic/cooliris/
+
